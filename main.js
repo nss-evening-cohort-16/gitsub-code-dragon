@@ -45,6 +45,7 @@ const addCardToDom= (array) => {
 
     renderToDom("#profile", profileCard);
     
+    
 }
 
 const dropDownSelectEvents = (event) => {
