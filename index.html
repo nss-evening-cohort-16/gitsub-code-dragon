@@ -16,36 +16,46 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.html">Overview</a>
+                    <a class="nav-link-color nav-link nav-link-color-active" aria-current="page" href="index.html">Overview</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="repositories.html">Repositories</a>
+                    <a class="nav-link-color nav-link" href="repositories.html">Repositories</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="projects.html">Projects</a>
+                    <a class="nav-link-color nav-link" href="projects.html">Projects</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="packages.html">Packages</a>
+                    <a class="nav-link-color nav-link" href="packages.html">Packages</a>
                 </li>
                 </ul>
             </div>
             </div>
         </nav>
         <aside class="profile-div">
-            <img src="http://wp-plugins-directory.com/wp-content/uploads/github-mini-profile-widget-preview.png">
+            <div id="profile"></div>
             </aside>
     </header>
     <div class="container-container">
         <div class="cards-container">
            <div class="cards-header">
-               <h4>Card Header Name</h4>
-           </div> <img src="https://githubdocs.azureedge.net/github-images/enterprise/2.19/assets/images/help/profile/profile_popular_repositories.png" >
+               <h4>Pinned Repositories</h4>
+           </div> 
         </div>
         <div class="forms-container">
             <div class="form-header">
-                <h4>Form Header Name</h4>
+                <h4>Forms</h4>
+                    <div id="dropdown-div" class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                        Create a...
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                            <li><button id="repo-form" class="dropdown-item" type="button">Repository</button></li>
+                            <li><button id="proj-form" class="dropdown-item" type="button">Project</button></li>
+                            <li><button id="pack-form" class="dropdown-item" type="button">Package</button></li>
+                        </ul>
+                    </div>
             </div>
-            <img src="https://raw.githubusercontent.com/spatie/form-backend-validation-example-app/master/public/images/screenshot.png" width="500px">
+            <div id="renderForms"></div>
         </div>
     </div>
     <footer class="footer">
@@ -86,6 +96,6 @@
           </ul>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="repositories.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
