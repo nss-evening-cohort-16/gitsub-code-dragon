@@ -8,6 +8,12 @@ repositories = [{
         name: "products",
         description: "products",
         pin: false
+    },
+    ,
+    {
+        name: "test",
+        description: "test",
+        pin: false
     }
 ];
 
@@ -45,7 +51,7 @@ const cardBuilderRepositories = (cardArray, divid) => {
                     <p class="card-description">${card.description}</p>
                     <div class="pin-body" id=pinid>
                     <button type="button" id=${i} class="btn btn-primary">unpin it</button> </div>
-                  //  <footer> ${card.tag1}  </footer>  
+                  //  <footer class> ${card.tag1}  </footer>  
                   //  <footer> ${card.langUsed}   ${card.star}   ${card.lastUpdated}   </footer>  
                     
                   </div>
