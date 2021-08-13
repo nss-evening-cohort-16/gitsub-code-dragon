@@ -13,7 +13,7 @@ const projectResult = (projectArray) => {
         domString += `
     <div class="card" style="width: 18rem;">
         <div class="card-body">
-            <h5 class="card-text">${project.name}</h5>
+            <h4 class="card-text">${project.name}</h4>
             <p class="card-text">${project.description}</p>
             <p class="card-text">${"Last Updated:" + " " + lastUpdated}</p>
         </div>
