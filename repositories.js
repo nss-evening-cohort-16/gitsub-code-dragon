@@ -10,7 +10,7 @@ const repositories = [{
     description: "products",
     pin: false,
     star: "st"
-}, ,
+}, 
 {
     name: "test",
     description: "test",
