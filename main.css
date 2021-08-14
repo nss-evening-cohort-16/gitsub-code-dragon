@@ -4,15 +4,22 @@ body {
     min-height: 100vh;
 }
 
-.profile-div{
-    height: 100%; /* Full-height: remove this if you want "auto" height */
-    width: 400px; /* Set the width of the sidebar */
-    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-    z-index: 1; /* Stay on top */
-    top: 0; /* Stay at the top */
+.profile-div {
+    height: 100%;
+    /* Full-height: remove this if you want "auto" height */
+    width: 400px;
+    /* Set the width of the sidebar */
+    position: fixed;
+    /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1;
+    /* Stay on top */
+    top: 0;
+    /* Stay at the top */
     left: 0;
-    background-color: #111; /* Black */
-    overflow-x: hidden; /* Disable horizontal scroll */
+    background-color: #111;
+    /* Black */
+    overflow-x: hidden;
+    /* Disable horizontal scroll */
     padding-top: 20px;
     border: 2px solid red;
     margin-top: 20px;
@@ -21,16 +28,16 @@ body {
     justify-content: center;
 }
 
-.profile-card{
+.profile-card {
     background-color: black;
     color: whitesmoke;
 }
 
-em{
+em {
     color: rgb(117, 115, 115);
 }
 
-.profile-list{
+.profile-list {
     background-color: black;
     color: whitesmoke;
 }
@@ -39,22 +46,34 @@ em{
     border-radius: 50%;
 }
 
-.navbar-css{
-    margin-left: 440px; /* Same as the width of the sidebar */
+.navbar-css {
+    margin-left: 440px;
+    /* Same as the width of the sidebar */
     margin-top: 20px;
     padding: 10px;
     position: fixed;
     width: 100%;
     border: 2px solid red;
 }
+.repo-card
+{
+    margin:10px;    
+}
+.listRep {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
 
 .bg-light {
-    background-color: black!important;
+    background-color: black !important;
 
 }
 
-.nav-link-color{
-    color: whitesmoke!important;
+.nav-link-color {
+    color: whitesmoke !important;
 }
 
 .nav-link-color-active {
@@ -62,28 +81,29 @@ em{
 }
 
 .container-container {
-    margin-left: 430px; /* Same as the width of the sidebar */
+    margin-left: 430px;
+    /* Same as the width of the sidebar */
     padding: 0px 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.cards-container{
+.cards-container {
     margin: 110px 50px 15px 0px;
     background-color: black;
     border: solid 2px red;
     padding: 10px;
 }
 
-.forms-container{
+.forms-container {
     margin: 15px 50px 15px 0px;
     background-color: black;
     border: solid 2px red;
     padding: 10px;
 }
 
-h4{
+h4 {
     color: lightgray
 }
 
@@ -98,10 +118,9 @@ h4{
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 3.5rem;  
+    height: 3.5rem;
 }
 
-ul.nav{
+ul.nav {
     align-items: baseline;
 }
-
