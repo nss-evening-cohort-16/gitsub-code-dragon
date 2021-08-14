@@ -37,13 +37,13 @@ const handleProjectForm = (event) => {
     projectResult(projectArr);
 
 
-    document.querySelector('#projectForm').reset()
+    document.querySelector('#packageForm').reset()
 }
 
 
   const projectForm = () => {
     const domString = `
-    <form id="projectForm" class="PForm">
+    <form id="packageForm" class="PForm">
       <div class="Label-Text">
         <label for="name" class="form-body">Project Name</label>
         <input required type="text" class="form-control" id="name">
@@ -55,7 +55,7 @@ const handleProjectForm = (event) => {
     </div>
     </form>
    `;
-    renderToDom("#formContainer", domString);
+    renderToDom("#form-Container", domString);
 
     projectFormEvents();  
    };
