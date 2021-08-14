@@ -54,7 +54,7 @@ const handleProjectForm = (event) => {
     </div>
     </form>
    `;
-    renderToDom('#formContainer', domString);
+    renderToDom("#formContainer", domString);
 
     projectFormEvents();  
    };
@@ -72,3 +72,4 @@ const init = () => {
 
 init();
 
+// export { projectForm };

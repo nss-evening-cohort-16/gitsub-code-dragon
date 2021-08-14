@@ -1,4 +1,4 @@
-repositories = [{
+let repositories = [{
         name: "sorting-Hash",
         description: "sorts hats",
         pin: true
@@ -125,3 +125,5 @@ const pinCard = (event) => {
 cardBuilderRepositories(repositories, "#listRepID");
 createProjectForm();
 btnst();
+
+export { createProjectForm };

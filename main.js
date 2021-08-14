@@ -1,18 +1,7 @@
-const profileArray = [
-    {
-        fullName: "Ruby Kaur",
-        profileName: "Ruby-Kaur-OG",
-        aboutMe: " Highly experience Database and data warehouse professional with extensive experience in designing, coding, ETL, testing and Business Intelligence solutions. Familiar with SDLC and Agile development pattern and played key role in a variety of project from development to deployment. Interested in Big Data technologies (Hadoop, Netezza etc.) and Business Intelligence solutions (Cognos, Business Objects, Tableau etc.).",
-        followersCount: 10000,
-        following: 500,
-        starCount: 300,
-        location: "Franklin, TN",
-        emailAddress: "ruby@rubykaur.com",
-        website: "rubykaur.com",
-        linkedIn: "https://www.linkedin.com/in/ruby-kaur/",
-    }
+// import { projectForm } from "./projects.js";
+import {profileArray} from "./profile.js";
 
-]
+
 
 const renderToDom = (divId, textToPrint) => {
     const selectedDiv = document.querySelector(divId);
@@ -44,17 +33,15 @@ const addCardToDom= (array) => {
     })
 
     renderToDom("#profile", profileCard);
-    
-    
 }
 
 const dropDownSelectEvents = (event) => {
     if(event.target.id === "repo-form"){
-        // buildForm(); builds repo form
+        createProjectForm()
         console.log("repo form")
     }
     if(event.target.id === "proj-form"){
-        // buildForm(); builds project form
+        projectForm()
         console.log("proj form")
     }
     if(event.target.id === "pack-form"){
@@ -69,6 +56,46 @@ const formDropdownEvents = () => {
       .addEventListener("click", dropDownSelectEvents);
 
   };
+  const handleProjectForm = (event) => {
+    event.preventDefault();
+    const newProject = {
+        name: document.querySelector('#name').value,
+        description: document.querySelector('#description').value,
+        date: document.querySelector('#lastUpdated')
+    };
+
+    projectArr.push(newProject);
+    projectResult(projectArr);
+
+
+    document.querySelector('#projectForm').reset()
+}
+
+
+  const projectForm = () => {
+    const domString = `
+    <form id="projectForm" class="PForm">
+      <div class="Label-Text">
+        <label for="name" class="form-body">Project Name</label>
+        <input required type="text" class="form-control" id="name">
+      </div>
+      <div class="Label-Text">
+        <label "for="description">Description (Optional)</label>
+        <textarea class="form-control" id="description" rows="3"></textarea>
+        <button type="submit" class="btn btn-primary">Create Project</button>
+    </div>
+    </form>
+   `;
+   
+    renderToDom("#renderForms", domString);
+
+    projectFormEvents();  
+   };
+
+    const projectFormEvents = () => {
+        const projectFormElement = document.querySelector('#projectForm')
+        projectFormElement.addEventListener("submit", handleProjectForm);
+    };
 
 const onit = () => {
     addCardToDom(profileArray);
