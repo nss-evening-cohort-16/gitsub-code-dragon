@@ -1,13 +1,6 @@
 import { profileArray, addCardToDom } from "./profile.js";
 
 
-
-const renderToDom = (divId, textToPrint) => {
-    const selectedDiv = document.querySelector(divId);
-    selectedDiv.innerHTML = textToPrint;
-};
-
-
 const dropDownSelectEvents = (event) => {
     if(event.target.id === "repo-form"){
         createProjectForm()
@@ -64,9 +57,7 @@ const formDropdownEvents = () => {
     };
 
 const onit = () => {
-    addCardToDom(profileArray);
+    addCardToDom(profileArray, "#profile");
     formDropdownEvents();
 };
 onit();
-
-export { renderToDom }
