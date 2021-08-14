@@ -41,4 +41,3 @@ export const addCardToDom= (array, divId) => {
 
     renderToDom(divId, profileCard);
 }
-
