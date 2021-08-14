@@ -1,5 +1,5 @@
 const repositories = [
-    {
+{
     name: "sorting-Hash",
     description: "sorts hats",
     pin: true,
@@ -16,13 +16,14 @@ const repositories = [
     description: "test",
     pin: false,
     star: "st"
-}
+},
 ];
 ​
 const renderToDom = (divId, textToPrint) => {
     const selectedDiv = document.querySelector(divId);
     selectedDiv.innerHTML = textToPrint;
 };
+
 const handleRepositoriesSubmit = (event) => {
     event.preventDefault();
     const newRepositories = {
@@ -119,4 +120,4 @@ cardBuilderRepositories(repositories, "#listRepID");
 createProjectForm();
 btnst();
 
-export { createProjectForm };
+// export { createProjectForm };
