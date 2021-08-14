@@ -1,3 +1,7 @@
+import {profileArray, addCardToDom} from "./profile.js"
+
+import { renderToDom } from "./renderToDom.js"
+
 let projectArr = [
     {
         name: "project 1",
@@ -19,10 +23,6 @@ let projectArr = [
 
 let lastUpdated = new Date()
 
-const renderToDom = (divId, textToRender) => {
-    const selectedDiv = document.querySelector(divId)
-    selectedDiv.innerHTML = textToRender;
-  }
 
   
 const projectResult = (projectArray) => {
@@ -84,10 +84,9 @@ const projectFormEvents = () => {
 
 
 const init = () => {
+    addCardToDom(profileArray, "#project-profile")
     projectForm();
     projectResult(projectArr);
 }
 
 init();
-
-// export { projectForm };
