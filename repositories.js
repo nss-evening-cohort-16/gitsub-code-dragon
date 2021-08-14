@@ -16,13 +16,14 @@ const repositories = [{
     description: "test",
     pin: false,
     star: "st"
-}
+},
 ];
 
 const renderToDom = (divId, textToPrint) => {
     const selectedDiv = document.querySelector(divId);
     selectedDiv.innerHTML = textToPrint;
 };
+
 const handleRepositoriesSubmit = (event) => {
     event.preventDefault();
     const newRepositories = {
@@ -42,6 +43,8 @@ const cardBuilderRepositories = (cardArray, divid) => {
     let domString = "";
 
     cardArray.forEach((card, i) => {
+        let btntext = "";
+        let btnstar = "";
         if (card.pin) {
             btntext = "unpin it";
         } else {
