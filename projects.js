@@ -24,6 +24,7 @@ const renderToDom = (divId, textToRender) => {
     selectedDiv.innerHTML = textToRender;
   }
 
+  
 const projectResult = (projectArray) => {
     let domString = "";
     projectArray.forEach((project)  => {
