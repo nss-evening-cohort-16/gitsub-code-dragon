@@ -1,4 +1,21 @@
-let projectArr = []
+let projectArr = [
+    {
+        name: "project 1",
+        description: "project description"
+    },
+    {
+        name: "project 2",
+        description: "project description 2"
+    },
+    {
+        name: "project 3",
+        description: "project description 3"
+    },
+    {
+        name: "project 4",
+        description: "project description 4"
+    }
+]
 
 let lastUpdated = new Date()
 
@@ -14,7 +31,7 @@ const projectResult = (projectArray) => {
         domString += `
     <div class="card" style="width: 18rem;">
         <div class="card-body">
-            <h5 class="card-text">${project.name}</h5>
+            <h4 class="card-text">${project.name}</h4>
             <p class="card-text">${project.description}</p>
             <p class="card-text">${"Last Updated:" + " " + lastUpdated}</p>
         </div>

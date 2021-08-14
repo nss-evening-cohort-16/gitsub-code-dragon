@@ -32,6 +32,11 @@ const handleRepositoriesSubmit = (event) => {
         pin: true,
         star: false
     };
+    console.log("newRepositories");
+    console.log(newRepositories);
+    const targetId = event.target.id;
+    const targetType = event.target.type;
+    console.log("targetid   "+ targetId);
     repositories.push(newRepositories);
     repositories.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))
     cardBuilderRepositories(repositories, "#listRepID");
