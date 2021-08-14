@@ -1,4 +1,4 @@
-import { renderToDom } from "./main.js";
+import { renderToDom } from "./renderToDom.js";
 
 export const profileArray = [
     {
@@ -15,7 +15,7 @@ export const profileArray = [
     },
 ]
 
-export const addCardToDom= (array) => {
+export const addCardToDom= (array, divId) => {
     let profileCard = ""
     array.forEach((obj) => {
     profileCard += 
@@ -39,6 +39,5 @@ export const addCardToDom= (array) => {
   </div>`;
     })
 
-    renderToDom("#profile", profileCard);
+    renderToDom(divId, profileCard);
 }
-

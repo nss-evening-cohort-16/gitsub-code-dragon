@@ -1,28 +1,9 @@
-const repositories = [{
-    name: "sorting-Hash",
-    description: "sorts hats",
-    pin: true,
-    star: "st"
+import {profileArray, addCardToDom} from "./profile.js"
 
-},
-{
-    name: "products",
-    description: "products",
-    pin: false,
-    star: "st"
-}, ,
-{
-    name: "test",
-    description: "test",
-    pin: false,
-    star: "st"
-},
-];
+import { renderToDom } from "./renderToDom.js"
 
-const renderToDom = (divId, textToPrint) => {
-    const selectedDiv = document.querySelector(divId);
-    selectedDiv.innerHTML = textToPrint;
-};
+import { repositories } from "./data.js";
+
 
 const handleRepositoriesSubmit = (event) => {
     event.preventDefault();
@@ -112,7 +93,7 @@ const togglepinCard = (event) => {
 }
 
 
-
+addCardToDom(profileArray, "#repo-profile")
 cardBuilderRepositories(repositories, "#listRepID");
 createProjectForm();
 btnst();
