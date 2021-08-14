@@ -1,12 +1,5 @@
 import { profileArray, addCardToDom } from "./profile.js";
-
-
-
-const renderToDom = (divId, textToPrint) => {
-    const selectedDiv = document.querySelector(divId);
-    selectedDiv.innerHTML = textToPrint;
-};
-
+import { renderToDom } from "./renderToDom.js";
 
 const dropDownSelectEvents = (event) => {
     if(event.target.id === "repo-form"){
@@ -22,6 +15,7 @@ const dropDownSelectEvents = (event) => {
         console.log("pack form")
     }
 }
+
 const formDropdownEvents = () => {
     document
       .querySelector("#dropdown-div")
@@ -38,7 +32,8 @@ const formDropdownEvents = () => {
     projectResult(projectArr);
     document.querySelector('#projectForm').reset()
 }
-  const projectForm = () => {
+  
+const projectForm = () => {
     const domString = `
     <form id="projectForm" class="PForm">
       <div class="Label-Text">
@@ -69,4 +64,3 @@ const onit = () => {
 };
 onit();
 
-export { renderToDom }

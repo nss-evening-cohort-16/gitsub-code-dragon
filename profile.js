@@ -1,4 +1,4 @@
-import { renderToDom } from "./main.js";
+import { renderToDom } from "./renderToDom.js";
 
 export const profileArray = [
     {
