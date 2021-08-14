@@ -59,7 +59,7 @@ const projectForm = () => {
     };
 
 const onit = () => {
-    addCardToDom(profileArray);
+    addCardToDom(profileArray, "#profile");
     formDropdownEvents();
 };
 onit();
