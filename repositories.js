@@ -1,16 +1,16 @@
-const repositories = [{
+const repositories = [
+    {
     name: "sorting-Hash",
     description: "sorts hats",
     pin: true,
     star: "st"
-​
 },
 {
     name: "products",
     description: "products",
     pin: false,
     star: "st"
-}, ,
+}, 
 {
     name: "test",
     description: "test",
