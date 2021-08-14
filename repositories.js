@@ -1,16 +1,16 @@
-const repositories = [{
+const repositories = [
+    {
     name: "sorting-Hash",
     description: "sorts hats",
     pin: true,
     star: "st"
-
 },
 {
     name: "products",
     description: "products",
     pin: false,
     star: "st"
-}, ,
+}, 
 {
     name: "test",
     description: "test",
@@ -18,7 +18,7 @@ const repositories = [{
     star: "st"
 }
 ];
-
+​
 const renderToDom = (divId, textToPrint) => {
     const selectedDiv = document.querySelector(divId);
     selectedDiv.innerHTML = textToPrint;
@@ -37,10 +37,10 @@ const handleRepositoriesSubmit = (event) => {
     cardBuilderRepositories(repositories, "#listRepID");
     console.log(event);
 };
-
+​
 const cardBuilderRepositories = (cardArray, divid) => {
     let domString = "";
-
+​
     cardArray.forEach((card, i) => {
         if (card.pin) {
             btntext = "unpin it";
@@ -52,7 +52,7 @@ const cardBuilderRepositories = (cardArray, divid) => {
         } else {
             btnstar = "star it";
         }
-
+​
         domString += `
                 <div class="card repo-card" style="width: 18rem;" id="notexpel">
                   
@@ -68,10 +68,10 @@ const cardBuilderRepositories = (cardArray, divid) => {
     });
     renderToDom(divid, domString);
 };
-
-
+​
+​
 const createProjectForm = () => {
-
+​
     const createProjectstr = `<form class="frmName" id ="addProject">
 <div class="btn btn-primary">
     <label for="project" class="projectentry">Project Board Name</label>
@@ -82,17 +82,17 @@ const createProjectForm = () => {
 </div>
 </form>`
     console.log("displayform");
-
+​
     renderToDom("#formRepID", createProjectstr)
 };
-
-
+​
+​
 const btnst = () => {
     document.querySelector("#formRepID").addEventListener("submit", handleRepositoriesSubmit);
     document.querySelector("#listRepID").addEventListener("click", togglepinCard);
 };
-
-
+​
+​
 const togglepinCard = (event) => {
     const targetId = event.target.id;
     const targetType = event.target.type;
@@ -107,11 +107,11 @@ const togglepinCard = (event) => {
         cardBuilderRepositories(repositories, "#listRepID");
     }
 }
-
-
-
+​
+​
+​
 cardBuilderRepositories(repositories, "#listRepID");
 createProjectForm();
 btnst();
-
+​
 //export { createProjectForm}

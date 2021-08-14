@@ -41,18 +41,22 @@ const packageBuilder = (packageArray) => {              //Adds Packages on page
     </div>
  `;
   });
+
   renderToDom("#packagesBuilder", domString);
 };
+
 const handlePackageEvent = (event) => {
   event.preventDefault();
   const newPackage = {
     name: document.querySelector('#name').value, 
     description: document.querySelector('#description').value,
   };
+
   package.push(newPackage);
   packageBuilder(package);
- // document.querySelector('#projectForm').rest()
+  document.querySelector('#projectForm').reset()
 }
+
 const packageForm = () => {                             //Adds forms on page 
   const domString = `
   <form id ="packageForm" class = "PkForm">
@@ -68,13 +72,18 @@ const packageForm = () => {                             //Adds forms on page
      </div>
 </form>`;
   renderToDom("#formContainer", domString);
+  
+  packageFormEvents();
+
 };
+
 const packageFormEvents =() => {
   const packageFormElement = document.querySelector('#packageForm')
   packageFormElement.addEventListener("submit",handlePackageEvent)
 };
-const init = () => {                                    //Starts the application
-  packageBuilder(package);
+
+const init = () => {                                    //Starts the application  
   packageForm();
+  packageBuilder(package);
 };
 init();

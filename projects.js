@@ -1,4 +1,21 @@
-let projectArr = []
+let projectArr = [
+    {
+        name: "project 1",
+        description: "project description"
+    },
+    {
+        name: "project 2",
+        description: "project description 2"
+    },
+    {
+        name: "project 3",
+        description: "project description 3"
+    },
+    {
+        name: "project 4",
+        description: "project description 4"
+    }
+]
 
 let lastUpdated = new Date()
 
@@ -7,6 +24,7 @@ const renderToDom = (divId, textToRender) => {
     selectedDiv.innerHTML = textToRender;
   }
 
+  
 const projectResult = (projectArray) => {
     let domString = "";
     projectArray.forEach((project)  => {
