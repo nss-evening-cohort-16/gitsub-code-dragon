@@ -1,5 +1,4 @@
-// import { projectForm } from "./projects.js";
-import {profileArray} from "./profile.js";
+import { profileArray, addCardToDom } from "./profile.js";
 
 
 
@@ -63,9 +62,11 @@ const formDropdownEvents = () => {
         const projectFormElement = document.querySelector('#projectForm')
         projectFormElement.addEventListener("submit", handleProjectForm);
     };
-    
+
 const onit = () => {
     addCardToDom(profileArray);
     formDropdownEvents();
 };
 onit();
+
+export { renderToDom }

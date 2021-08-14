@@ -43,6 +43,8 @@ const cardBuilderRepositories = (cardArray, divid) => {
     let domString = "";
 
     cardArray.forEach((card, i) => {
+        let btntext = "";
+        let btnstar = "";
         if (card.pin) {
             btntext = "unpin it";
         } else {

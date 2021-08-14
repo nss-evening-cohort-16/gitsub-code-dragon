@@ -1,3 +1,5 @@
+import { renderToDom } from "./main.js";
+
 export const profileArray = [
     {
         fullName: "Ruby Kaur",
@@ -13,7 +15,7 @@ export const profileArray = [
     },
 ]
 
-const addCardToDom= (array) => {
+export const addCardToDom= (array) => {
     let profileCard = ""
     array.forEach((obj) => {
     profileCard += 
