@@ -72,8 +72,6 @@ const packageForm = () => {                             //Adds forms on page
      </div>
 </form>`;
   renderToDom("#formContainer", domString);
-  
-  packageFormEvents();
 
 };
 
@@ -85,5 +83,6 @@ const packageFormEvents =() => {
 const init = () => {                                    //Starts the application  
   packageForm();
   packageBuilder(package);
+  packageFormEvents();
 };
 init();
