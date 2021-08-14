@@ -23,12 +23,10 @@ const dropDownSelectEvents = (event) => {
         console.log("pack form")
     }
 }
-
 const formDropdownEvents = () => {
     document
       .querySelector("#dropdown-div")
       .addEventListener("click", dropDownSelectEvents);
-
   };
   const handleProjectForm = (event) => {
     event.preventDefault();
@@ -37,15 +35,10 @@ const formDropdownEvents = () => {
         description: document.querySelector('#description').value,
         date: document.querySelector('#lastUpdated')
     };
-
     projectArr.push(newProject);
     projectResult(projectArr);
-
-
     document.querySelector('#projectForm').reset()
 }
-
-
   const projectForm = () => {
     const domString = `
     <form id="projectForm" class="PForm">
@@ -70,10 +63,9 @@ const formDropdownEvents = () => {
         const projectFormElement = document.querySelector('#projectForm')
         projectFormElement.addEventListener("submit", handleProjectForm);
     };
-
+    
 const onit = () => {
     addCardToDom(profileArray);
     formDropdownEvents();
 };
-
 onit();

@@ -24,12 +24,10 @@ const package = [
     description: "A single place for your team to manage Docker images and decide who can see and acess your images.",
   },
 ]
-
 const renderToDom = (divId, textToPrint) => {           //Render to DOM function 
   const selectedDiv = document.querySelector(divId);
   selectedDiv.innerHTML = textToPrint;
 };
-
 const packageBuilder = (packageArray) => {              //Adds Packages on page
   let domString = "";
   packageArray.forEach((package) => {
@@ -88,5 +86,4 @@ const init = () => {                                    //Starts the application
   packageForm();
   packageBuilder(package);
 };
-
 init();
