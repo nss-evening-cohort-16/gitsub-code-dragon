@@ -30,7 +30,7 @@ const handlePackageEvent = (event) => {
 
   packageArr.push(newPackage);
   packageBuilder(packageArr);
-  document.querySelector('#projectForm').reset()
+  document.querySelector('#packageForm').reset()
 }
 
 const packageForm = () => {                             //Adds forms on page 
@@ -47,7 +47,7 @@ const packageForm = () => {                             //Adds forms on page
        <button type="submit" class="btn btn-primary">Create Package</button>
      </div>
 </form>`;
-  renderToDom("#formContainer", domString);
+  renderToDom("#form-Container", domString);
   
   packageFormEvents();
 
