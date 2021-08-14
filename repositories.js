@@ -105,8 +105,4 @@ cardBuilderRepositories(repositories, "#listRepID");
 createProjectForm();
 btnst();
 
-<<<<<<< HEAD
 export { createProjectForm };
-=======
-//export { createProjectForm}
->>>>>>> main
