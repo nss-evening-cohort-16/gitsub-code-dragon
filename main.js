@@ -1,5 +1,3 @@
-//import {createProjectForm} from "./repositories.js"
-
 const profileArray = [
     {
         fullName: "Ruby Kaur",
@@ -13,18 +11,15 @@ const profileArray = [
         website: "rubykaur.com",
         linkedIn: "https://www.linkedin.com/in/ruby-kaur/",
     }
-
 ]
-
 const renderToDom = (divId, textToPrint) => {
     const selectedDiv = document.querySelector(divId);
     selectedDiv.innerHTML = textToPrint;
 };
-
 const addCardToDom= (array) => {
     let profileCard = ""
     array.forEach((obj) => {
-    profileCard += 
+    profileCard +=
     `<div class="profile-card  card" style="width: 23rem;">
     <img class="profile-img" src="https://media-exp1.licdn.com/dms/image/C5603AQH7sqQfv4H2cQ/profile-displayphoto-shrink_800_800/0/1625710416088?e=1634169600&v=beta&t=RvNcXZO3TdycR4piT--roZBF5pnfop8salmH2d64ZR4" class="card-img-top" alt="${obj.fullName}">
     <div class="card-body">
@@ -44,19 +39,15 @@ const addCardToDom= (array) => {
     </div>
   </div>`;
     })
-
     renderToDom("#profile", profileCard);
-    
-    
 }
-
 const dropDownSelectEvents = (event) => {
     if(event.target.id === "repo-form"){
-        // buildForm(); builds repo form
+        createProjectForm()
         console.log("repo form")
     }
     if(event.target.id === "proj-form"){
-        // buildForm(); builds project form
+        projectForm()
         console.log("proj form")
     }
     if(event.target.id === "pack-form"){
@@ -64,17 +55,45 @@ const dropDownSelectEvents = (event) => {
         console.log("pack form")
     }
 }
-
 const formDropdownEvents = () => {
     document
       .querySelector("#dropdown-div")
       .addEventListener("click", dropDownSelectEvents);
-
   };
-
+  const handleProjectForm = (event) => {
+    event.preventDefault();
+    const newProject = {
+        name: document.querySelector('#name').value,
+        description: document.querySelector('#description').value,
+        date: document.querySelector('#lastUpdated')
+    };
+    projectArr.push(newProject);
+    projectResult(projectArr);
+    document.querySelector('#projectForm').reset()
+}
+  const projectForm = () => {
+    const domString = `
+    <form id="projectForm" class="PForm">
+      <div class="Label-Text">
+        <label for="name" class="form-body">Project Name</label>
+        <input required type="text" class="form-control" id="name">
+      </div>
+      <div class="Label-Text">
+        <label "for="description">Description (Optional)</label>
+        <textarea class="form-control" id="description" rows="3"></textarea>
+        <button type="submit" class="btn btn-primary">Create Project</button>
+    </div>
+    </form>
+   `;
+    renderToDom("#renderForms", domString);
+    projectFormEvents();
+   };
+    const projectFormEvents = () => {
+        const projectFormElement = document.querySelector('#projectForm')
+        projectFormElement.addEventListener("submit", handleProjectForm);
+    };
 const onit = () => {
     addCardToDom(profileArray);
     formDropdownEvents();
 };
-
 onit();
