@@ -65,7 +65,15 @@ em {
     flex-wrap: wrap;
 }
 
-
+.package-card {
+    margin:10px;   
+}
+.listPackage {
+    display: flex;
+    justify-content:last baseline;
+    flex-wrap: wrap;
+    order: 3;
+}
 
 .bg-light {
     background-color: black !important;

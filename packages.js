@@ -8,7 +8,7 @@ const packageBuilder = (packageArray) => {              //Adds Packages on page
   let domString = "";
   packageArray.forEach((obj) => {
     domString += `
-    <div class="card" style="width: 18rem;">
+    <div class="card" style="width: 14rem;">
         <div class="card-body">
             <h5 class="card-text">${obj.name}</h5>
             <p class="card-text">${obj.description}</p>
