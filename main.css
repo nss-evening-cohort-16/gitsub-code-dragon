@@ -59,19 +59,20 @@ em {
 {
     margin:10px;    
 }
-.listRep {
+
+.project-card {
+    width: 100%;
+}
+
+.listRep, .projectsDiv {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
-
 
 .projectsDiv {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    justify-content: left;
 }
-
 
 
 .bg-light {
