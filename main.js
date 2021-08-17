@@ -11,7 +11,7 @@ const cardBuilderRepositories = (cardArray, divid) => {
         if (obj.pin) {
             btntext = "unpin";
             domString += `
-                <div class="card repo-card" style="width: 18rem;" >
+                <div class="card repo-card" style="width: 10rem;" >
                   <div class="card-body">
                     <h5 class="card-title">${obj.name}</h5>
                     <p class="card-description">${obj.description}</p>
