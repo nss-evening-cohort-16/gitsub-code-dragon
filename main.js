@@ -1,65 +1,86 @@
 import { profileArray, addCardToDom } from "./profile.js";
 import { renderToDom } from "./renderToDom.js";
+import { repositories } from "./data.js";
 
-const dropDownSelectEvents = (event) => {
-    if(event.target.id === "repo-form"){
-        createProjectForm()
-        console.log("repo form")
-    }
-    if(event.target.id === "proj-form"){
-        projectForm()
-        console.log("proj form")
-    }
-    if(event.target.id === "pack-form"){
-        // buildForm(); builds package form
-        console.log("pack form")
-    }
-}
+const pinnedRepos= [];
 
-const formDropdownEvents = () => {
-    document
-      .querySelector("#dropdown-div")
-      .addEventListener("click", dropDownSelectEvents);
-  };
-  const handleProjectForm = (event) => {
-    event.preventDefault();
-    const newProject = {
-        name: document.querySelector('#name').value,
-        description: document.querySelector('#description').value,
-        date: document.querySelector('#lastUpdated')
+const cardBuilderRepositories = (cardArray, divid) => {
+    let domString = "";
+    cardArray.forEach((obj, i) => {
+        let btntext = "";
+        if (obj.pin) {
+            btntext = "unpin";
+            domString += `
+                <div class="card repo-card" style="width: 18rem;" >
+                  <div class="card-body">
+                    <h5 class="card-title">${obj.name}</h5>
+                    <p class="card-description">${obj.description}</p>
+                    <div class="pin-body" id=togglepin><button type="button" id=${i} class="btn btn-primary">${btntext}</button> </div> 
+                  </div>
+                </div>
+                `;
+        
     };
-    projectArr.push(newProject);
-    projectResult(projectArr);
-    document.querySelector('#projectForm').reset()
-}
+    renderToDom(divid, domString);
+})};
   
-const projectForm = () => {
+const pinnedForm = () => {
     const domString = `
-    <form id="projectForm" class="PForm">
-      <div class="Label-Text">
-        <label for="name" class="form-body">Project Name</label>
-        <input required type="text" class="form-control" id="name">
-      </div>
-      <div class="Label-Text">
+        <form id="pinnedForm" class="pinnForm">
+        <div class="Label-Text">
+            <label for="name" class="form-body">Pinned Project</label>
+            <input required type="text" class="form-control" id="name">
+        </div>
+        <div class="Label-Text">
         <label "for="description">Description (Optional)</label>
         <textarea class="form-control" id="description" rows="3"></textarea>
-        <button type="submit" class="btn btn-primary">Create Project</button>
-    </div>
-    </form>
-   `;
+        </div>
+            <button type="submit" class="btn btn-primary">Create!</button>
+        </div>
+        </form>
+    `;
    
-    renderToDom("#renderForms", domString);
-
-    projectFormEvents();  
-   };
-
-    const projectFormEvents = () => {
-        const projectFormElement = document.querySelector('#projectForm')
-        projectFormElement.addEventListener("submit", handleProjectForm);
-    };
-
-const onit = () => {
-    addCardToDom(profileArray, "#profile");
-    formDropdownEvents();
+    renderToDom("#renderForm", domString);
+    pinnedFormEvents();  
 };
-onit();
+
+const handlePinnedForm = (event) => {
+    event.preventDefault();
+        let newPin = {
+            name: document.querySelector('#name').value,
+            description: document.querySelector('#description').value,
+            pin: true
+            };
+    repositories.push(newPin);
+    cardBuilderRepositories(repositories, "#renderCardDiv");
+    document.querySelector('#pinnedForm').reset()
+};
+
+const pinnedFormEvents = () => {
+        const pinnedFormElement = document.querySelector("#pinnedForm");
+        pinnedFormElement.addEventListener("submit", handlePinnedForm);
+};
+
+const unpinBtn = (event) => {
+    const targetId = event.target.id
+    const targetType = event.target.type
+
+    if (targetType === "button") {
+        pinnedRepos.push(repositories.splice(targetId, 1)[0])
+        cardBuilderRepositories(repositories, "#renderCardDiv")
+        console.log(pinnedRepos)
+    }
+}
+
+const btnEvent = () => {
+    document.querySelector("#renderCardDiv").addEventListener("click", unpinBtn)
+}
+
+const init = () => {
+    addCardToDom(profileArray, "#profile");
+    cardBuilderRepositories(repositories, "#renderCardDiv");
+    pinnedForm();
+    btnEvent();
+};
+
+init()
