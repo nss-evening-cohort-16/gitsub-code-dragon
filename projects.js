@@ -1,13 +1,7 @@
 import {profileArray, addCardToDom} from "./profile.js"
-
 import { renderToDom } from "./renderToDom.js"
-
 import {projectArr} from "./data.js"
-
 let lastUpdated = new Date()
-
-
-  
 const projectResult = (projectArray) => {
     let domString = "";
     projectArray.forEach((project)  => {
@@ -23,10 +17,8 @@ const projectResult = (projectArray) => {
 </div>
     `;
     });
-
     renderToDom('#projectDiv', domString);
 };
-
 const handleProjectForm = (event) => {
     event.preventDefault();
     const newProject = {
@@ -34,15 +26,10 @@ const handleProjectForm = (event) => {
         description: document.querySelector('#description').value,
         date: document.querySelector('#lastUpdated')
     };
-
     projectArr.push(newProject);
     projectResult(projectArr);
-
-
     document.querySelector('#projectForm').reset()
 }
-
-
   const projectForm = () => {
     const domString = `
     <form id="projectForm" class="PForm">
@@ -58,30 +45,24 @@ const handleProjectForm = (event) => {
     </form>
    `;
     renderToDom("#formContainer", domString);
-
-    projectFormEvents();  
+    projectFormEvents(); 
    };
-
 const projectFormEvents = () => {
     const projectFormElement = document.querySelector('#projectForm')
     projectFormElement.addEventListener("submit", handleProjectForm);
 };
-
 const searchBar = document.querySelector('#ProjectSearchBar');
-
 searchBar.addEventListener('keyup', (event) => {
     const searchString = event.target.value.toLowerCase();
     const filteredProjects = projectArr.filter( project => {
-        return project.name.toLowerCase().includes(searchString) || 
+        return project.name.toLowerCase().includes(searchString) ||
         project.description.toLowerCase().includes(searchString);
     });
     projectResult(filteredProjects);
 });
-
 const init = () => {
     addCardToDom(profileArray, "#project-profile")
     projectForm();
     projectResult(projectArr);
 }
-
 init();

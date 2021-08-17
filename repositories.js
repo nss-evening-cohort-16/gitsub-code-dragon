@@ -5,18 +5,61 @@ import { renderToDom } from "./renderToDom.js"
 import { repositories } from "./data.js";
 
 
+
+
+// const searchBar = document.getElementById('repsearchBar');
+// const searchCard = (event) => {
+//     const searchString = e.target.value.toLowerCase();
+//     const filteredCharacters = repositories.filter((repository) => {
+//         return (
+//             repository.name.toLowerCase().includes(searchString) ||
+//             repository.description.toLowerCase().includes(searchString)
+       
+//         );
+//         console.log(filteredCharacters);
+
+// });
+// console.log("searchbar");
+// cardBuilderRepositories(filteredCharacters, "#listRepID");
+// console.log("searchbar2");
+// };
+
+const searchBar = document.getElementById('repsearchBar');
+
+
+searchBar.addEventListener('keyup', (e) => {
+    const searchString = e.target.value.toLowerCase();
+    console.log(searchString);
+
+    const filteredCharacters = repositories.filter((character) => {
+        return (
+            character.name.toLowerCase().includes(searchString) ||
+            character.description.toLowerCase().includes(searchString)
+        );
+    });
+    console.log(filteredCharacters);
+    cardBuilderRepositories(filteredCharacters, "#listRepID");
+});
+
+
+
+
+
 const handleRepositoriesSubmit = (event) => {
     event.preventDefault();
     const newRepositories = {
-        name: document.querySelector("#project").value,
-        description: document.querySelector("#projdesc").value,
+        name: document.querySelector("#repo").value,
+        description: document.querySelector("#repodesc").value,
         lastUpdated: Date(Date.now()).substring(0, 33),
         pin: true,
         star: false
     };
-    repositories.push(newRepositories);
+    repositories.push(newRepositories);    
     repositories.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))
     cardBuilderRepositories(repositories, "#listRepID");
+    document.getElementById("addrepo").reset();
+    //document.querySelector("#repo").value="";
+    //document.querySelector("#repodesc").value="";
     console.log(event);
 };
 
@@ -44,10 +87,11 @@ const cardBuilderRepositories = (cardArray, divid) => {
                     <h5 class="card-title">${card.name}</h5>
                     <p class="card-description">${card.description}</p>
                     <div class="pin-body" id=togglepin><button type="button" id=${i} class="btn btn-primary">${btntext}</button> </div> 
+                    
                   </div>
                 </div>
                 `;
-                //<div class="star-body" id=togglestar${i}><button type="button" id=${i} class="btn btn-primary">${btnstar}</button> </div>
+                //<div class="star-body" id=togglestar${i}><button type="button" class="btn btn-primary">${btnstar}</button> </div>
         
     });
     renderToDom(divid, domString);
@@ -56,13 +100,13 @@ const cardBuilderRepositories = (cardArray, divid) => {
 
 const createProjectForm = () => {
 
-    const createProjectstr = `<form class="frmName" id ="addProject">
+    const createProjectstr = `<form class="frmName" id ="addrepo">
 <div class="btn btn-primary">
-    <label for="project" class="projectentry">Project Board Name</label>
-    <input required type="text" class="projectName" id="project" placeholder="Enter name">
-    <label for="projdesc" class="projectdescLabel">Description</label>
-    <input  type="text" class="projectdescription" id="projdesc" placeholder="Enter description">
-    <button type="submit" id= "newid" class="btn btn-primary">Create Project</button>
+    <label for="repo" class="repoentry">Repository Name</label>
+    <input required type="text" class="repoName" id="repo" placeholder="Enter name">
+    <label for="repodesc" class="repodescLabel">Description</label>
+    <input  type="text" class="Repository description" id="repodesc" placeholder="Enter description">
+    <button type="submit" id= "newid" class="btn btn-primary">Create Repository</button>
 </div>
 </form>`
     console.log("displayform");
@@ -74,6 +118,7 @@ const createProjectForm = () => {
 const btnst = () => {
     document.querySelector("#formRepID").addEventListener("submit", handleRepositoriesSubmit);
     document.querySelector("#listRepID").addEventListener("click", togglepinCard);
+   // document.querySelector("#repsearchWrapper").addEventListener("keyup", searchCard);
 };
 
 
@@ -91,11 +136,12 @@ const togglepinCard = (event) => {
         cardBuilderRepositories(repositories, "#listRepID");
     }
 }
-
-
-addCardToDom(profileArray, "#repo-profile")
+const init = () => {
+addCardToDom(profileArray, "#repo-profile");
 cardBuilderRepositories(repositories, "#listRepID");
 createProjectForm();
 btnst();
+}
 
+init();
 //export { createProjectForm}
