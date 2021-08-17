@@ -58,6 +58,17 @@ const packageFormEvents =() => {
   packageFormElement.addEventListener("submit",handlePackageEvent)
 };
 
+const searchBar = document.querySelector('#packageSearchBar')                  //Seach Bar functionality
+
+  searchBar.addEventListener('keyup',(event) => {
+    const searchValue = event.target.value.toLowerCase()
+    const filterdPackages = packageArr.filter(pac =>{
+      return pac.name.toLowerCase().includes(searchValue) || 
+      pac.description.toLowerCase().includes(searchValue)
+    })
+    packageBuilder(filterdPackages);
+  })
+  
 const init = () => {    
   addCardToDom(profileArray, "#package-profile")                                //Starts the application  
   packageForm();
