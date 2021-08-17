@@ -7,7 +7,7 @@ The repositories page will have a form for creating new repositories and also th
 The projects page will have a form for creating new projects and the ability to search those projects with a search bar in the projects page.
 The packages page will have a form for creating new projects and the ability to search those projects with a search bar in the packages page.
 
-[Deployed project](code-dragon-890ab9.netlify.app)
+[Deployed project](https://code-dragon-890ab9.netlify.app)
 
 [Project Board](https://www.figma.com/file/8vIX1yEXd2UxdWARbWqAje/GitSub?node-id=5%3A20)
 
