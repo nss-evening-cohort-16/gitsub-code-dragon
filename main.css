@@ -55,16 +55,24 @@ em {
     width: 100%;
     border: 2px solid red;
 }
-.repo-card
+.repo-card, .project-card
 {
     margin:10px;    
 }
-.listRep {
+
+.project-card {
+    width: 100%;
+}
+
+.listRep, .projectsDiv {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
 
+.projectsDiv {
+    justify-content: left;
+}
 
 
 .bg-light {
