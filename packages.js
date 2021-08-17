@@ -8,7 +8,7 @@ const packageBuilder = (packageArray) => {              //Adds Packages on page
   let domString = "";
   packageArray.forEach((obj) => {
     domString += `
-    <div class="card" style="width: 18rem;">
+    <div class="card" style="width: 14rem;">
         <div class="card-body">
             <h5 class="card-text">${obj.name}</h5>
             <p class="card-text">${obj.description}</p>
@@ -18,7 +18,7 @@ const packageBuilder = (packageArray) => {              //Adds Packages on page
  `;
   });
 
-  renderToDom("#packagesBuilder", domString);
+  renderToDom("#packageDiv", domString);
 };
 
 const handlePackageEvent = (event) => {
@@ -58,6 +58,17 @@ const packageFormEvents =() => {
   packageFormElement.addEventListener("submit",handlePackageEvent)
 };
 
+const searchBar = document.querySelector('#packageSearchBar')                  //Seach Bar functionality
+
+  searchBar.addEventListener('keyup',(event) => {
+    const searchValue = event.target.value.toLowerCase()
+    const filterdPackages = packageArr.filter(pac =>{
+      return pac.name.toLowerCase().includes(searchValue) || 
+      pac.description.toLowerCase().includes(searchValue)
+    })
+    packageBuilder(filterdPackages);
+  })
+  
 const init = () => {    
   addCardToDom(profileArray, "#package-profile")                                //Starts the application  
   packageForm();
